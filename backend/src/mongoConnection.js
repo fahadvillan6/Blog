@@ -2,7 +2,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
 try {
-  mongoose.connect(process.env.mongo_url);
+  const url = process.env.mongo_url || 'mongodb://localhost:27017'
+  mongoose.connect(url);
   const connection = mongoose.connection;
   connection.on('connected', () => {
     console.log('connected');
