@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Editor from '../Components/Editor';
 import View from '../Components/View';
 
 function Home() {
