@@ -4,6 +4,7 @@ import { RichTextEditor } from '@mantine/rte';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { NavLink } from '@mantine/core';
 
 function Editor({ blog }) {
   console.log(blog, 'kk');
@@ -24,31 +25,34 @@ function Editor({ blog }) {
     navigate('/');
   };
   return (
-    <div className='w-1/2 mt-8 mr-auto ml-auto h-screen'>
-      <div className='flex'>
-        <h1 className='mr-auto ml-auto text-lg font-semibold text-center'>
-          Create a Blog
-        </h1>
-        <button
-          onClick={saveItem}
-          className='  p-1 py-1  text-white bg-blue-600 rounded'
-        >
-          save
-        </button>
-      </div>
+    <div className=''>
+      <div className=' w-1/2 mt-8 mr-auto ml-auto h-screen'>
+        <div className='flex'>
+          <h1 className='mr-auto ml-auto text-lg font-semibold text-center'>
+            Create a Blog
+          </h1>
 
-      <RichTextEditor
-        controls={[
-          ['bold', 'italic', 'underline', 'link'],
-          ['unorderedList', 'h1', 'h2', 'h3'],
-          ['sup', 'sub', 'image'],
-          ['alignLeft', 'alignCenter', 'alignRight'],
-        ]}
-        value={value}
-        onChange={onChange}
-        // onImageUpload={handleImageupload}
-        id='rte'
-      />
+          <button
+            onClick={saveItem}
+            className='  p-1 py-1  text-white bg-blue-600 rounded'
+          >
+            save
+          </button>
+        </div>
+
+        <RichTextEditor
+          controls={[
+            ['bold', 'italic', 'underline', 'link'],
+            ['unorderedList', 'h1', 'h2', 'h3'],
+            ['sup', 'sub'],
+            ['alignLeft', 'alignCenter', 'alignRight'],
+          ]}
+          value={value}
+          onChange={onChange}
+          // onImageUpload={handleImageupload}
+          id='rte'
+        />
+      </div>
     </div>
   );
 }
